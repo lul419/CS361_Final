@@ -76,7 +76,8 @@ def main():
 
         # construct x and s
         x = np.divide(t,gamma)
-        s = np.multiply(f, alpha0/gamma)
+        # s = np.multiply(f, alpha0/gamma)
+        s = np.multiply(f, 0.05/1.0)
         l = len(fftfg[0])
         s = s[C*l:(C+1)*l]
 
@@ -89,21 +90,25 @@ def main():
     coeff = np.array(coeff)
 
     # pickle xvec, svec, coeff, argfg and argbg
+    pickle.dump(xvec, open("xvec.p", "wb"))
+    pickle.dump(svec, open("svec.p", "wb"))
+    pickle.dump(coeff, open("coeff.p", "wb"))
+    pickle.dump(argfg, open("argfg.p", "wb"))
 
     # Test inverse transform
     # reconstruct Zxx
     # we need (513,254) vector row = complex freq, col = data
-    Zxx = []
-    for i in range(C,len(argfg)-C):
-        mag = svec[i-C]
-        arg = argfg[i]
-        c = np.multiply(mag,np.exp(np.multiply(arg,1j)))
-        Zxx.append(c)
-    Zxx = np.array(Zxx).T
-    time,recovered = sig.istft(Zxx, fs=ratefg, nperseg=L)
+    # Zxx = []
+    # for i in range(C,len(argfg)-C):
+    #     mag = svec[i-C]
+    #     arg = argfg[i]
+    #     c = np.multiply(mag,np.exp(np.multiply(arg,1j)))
+    #     Zxx.append(c)
+    # Zxx = np.array(Zxx).T
+    # time,recovered = sig.istft(Zxx, fs=ratefg, nperseg=L)
 
-    recovered = np.multiply(recovered,0.05)
-    wf.write("test.wav",ratefg,recovered)
+    # recovered = np.multiply(recovered,0.00005)
+    # wf.write("test.wav",ratefg,recovered)
 
 
 main()
