@@ -19,21 +19,27 @@ def eval_genome(genome, config):
         s = svec[i]
         output = net.activate(x)
 
-        print(max(s))
-        print(max(output))
+        # print("s: ",max(s)," | ",min(s))
+        # print("sp: ",max(output)," | ",min(output))
         error += np.sum(np.power(np.subtract(output,s),2))
 
     error = error/num_eval
     print ("error: ", error)
+    print ("-- error per entry: ", np.sqrt(error/257))
 
-    return error
+    # return fitness = inverse error,
+    # because neat module seems to be stuck on finess maximization
+    return 1/error
 
 
 def eval_genomes(genomes, config):
-	print ("--------- evaluating ---------")
-	for genome_id, genome in genomes:
-		genome.fitness = eval_genome(genome, config)
-	print()
+    fitnesses = []
+    for genome_id, genome in genomes:
+        genome.fitness = eval_genome(genome, config)
+        fitnesses.append(genome.fitness)
+    f = open("results.txt","a")
+    f.write("avg, " + str(np.mean(fitnesses)) + ", best, " + str(max(fitnesses)) + "\n")
+    f.close()
 
 
 def run():
@@ -50,45 +56,20 @@ def run():
 
     print("Creating population...")
     pop = neat.Population(config)
-    # stats = neat.StatisticsReporter()
-    # pop.add_reporter(stats)
-    # pop.add_reporter(neat.StdOutReporter(True))
+    stats = neat.StatisticsReporter()
+    pop.add_reporter(stats)
+    pop.add_reporter(neat.StdOutReporter(True))
 
-    print("Running for 10 generations...")
-    #pe = neat.ParallelEvaluator(4, eval_genome)
-    winner = pop.run(eval_genomes, 10)
-
+    num_generations=20
+    print("Running for %i generations..." % num_generations)
+    winner = pop.run(eval_genomes, num_generations)
 
     # Log statistics.
-    # stats.save()
+    stats.save()
 
-    # Show output of the most fit genome against a random input.
-    print('\nBest genome:\n{!s}'.format(winner))
-    # print('\nOutput:')
-    # winner_net = neat.nn.RecurrentNetwork.create(winner, config)
-    # num_correct = 0
-    # for n in range(num_tests):
-    #     print('\nRun {0} output:'.format(n))
-    #     seq = [random.choice((0.0, 1.0)) for _ in range(N)]
-    #     winner_net.reset()
-    #     for s in seq:
-    #         inputs = [s, 0.0]
-    #         winner_net.activate(inputs)
-    #         print('\tseq {0}'.format(inputs))
-    #
-    #     correct = True
-    #     for s in seq:
-    #         output = winner_net.activate([0, 1])
-    #         print("\texpected {0:1.5f} got {1:1.5f}".format(s, output[0]))
-    #         correct = correct and round(output[0]) == s
-    #     print("OK" if correct else "FAIL")
-    #     num_correct += 1 if correct else 0
-    #
-    # print("{0} of {1} correct {2:.2f}%".format(num_correct, num_tests, num_correct/num_tests))
-    #
-    # node_names = {-1: 'input', -2: 'gate', 0: 'output'}
-    # visualize.draw_net(config, winner, True, node_names=node_names)
-    # visualize.plot_stats(stats, ylog=False, view=True)
+    #print('\nBest genome:\n{!s}'.format(winner))
+    winner_net = neat.nn.RecurrentNetwork.create(winner, config)
+    pickle.dump(winner_net,open("winner_net.p","wb"))
 
 def main():
 	global xvec
