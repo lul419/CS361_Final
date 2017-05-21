@@ -18,7 +18,7 @@ def main():
     str2 = sys.argv[2]
     f1 = sys.argv[3]
     f2 = sys.argv[4]
-    
+
     if not (str1.isdigit() and int(str1) > 0):
         print ("C needs to be a positive integer.")
         return
@@ -77,7 +77,7 @@ def main():
         # construct x and s
         x = np.divide(t,gamma)
         # s = np.multiply(f, alpha0/gamma)
-        s = np.multiply(f, 0.05/1.0)
+        s = np.multiply(f, alpha0/gamma)
         l = len(fftfg[0])
         s = s[C*l:(C+1)*l]
 
