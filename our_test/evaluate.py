@@ -8,11 +8,12 @@ from scipy import signal as sig
 def main():
     nn = pickle.load(open("winner_net.p","rb"), encoding='latin1')
     xvec = pickle.load(open("xvec.p", "rb"), encoding='latin1')
-	argfg = pickle.load(open("argfg.p", "rb"), encoding='latin1')
+    argfg = pickle.load(open("argfg.p", "rb"), encoding='latin1')
 
     # evalute the ENN on the sound file
     output = []
     for x in xvec:
+        print("evaluating")
         output.append(nn.activate(x))
     output = np.array(output)
 
