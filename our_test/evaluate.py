@@ -13,8 +13,9 @@ def main():
     # evalute the ENN on the sound file
     output = []
     for x in xvec:
-        print("evaluating")
-        output.append(nn.activate(x))
+        sp = nn.activate(x)
+        #print("sp: ", sp)
+        output.append(sp)
     output = np.array(output)
 
     # reconstruct Zxx
@@ -29,8 +30,10 @@ def main():
         c = np.multiply(mag,np.exp(np.multiply(arg,1j)))
         Zxx.append(c)
     Zxx = np.array(Zxx).T
+    print(Zxx)
     time,recovered = sig.istft(Zxx, fs=ratefg, nperseg=L)
-    recovered = np.multiply(recovered,0.00005)
+    pickle.dump(recovered, open("pickled_recovered.p", "wb"))
+    recovered = np.multiply(recovered, 0.005)
     wf.write("winner_output.wav",ratefg,recovered)
 
 main()
