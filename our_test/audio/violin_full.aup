@@ -1,0 +1,89 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="violin_full_data" version="1.3.0" audacityversion="2.1.2" sel0="10.6306088539" sel1="10.6306088539" vpos="0" h="9.7177418917" zoom="256.3352708637" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="v2095__2" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000bdf.au" len="132299" min="-0.090515" max="0.106659" rms="0.017535"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="2.99997732">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e000025b.au" len="132299" min="-0.078308" max="0.060028" rms="0.011929"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="5.99995465">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000775.au" len="132299" min="-0.210144" max="0.192444" rms="0.033342"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="8.99993197">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000d33.au" len="132299" min="-0.080322" max="0.067322" rms="0.014003"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="11.99990930">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000035.au" len="132299" min="-0.074463" max="0.077606" rms="0.010969"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="v2095__2" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000294.au" len="132299" min="-0.088379" max="0.08844" rms="0.016444"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="2.99997732">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e00009a1.au" len="132299" min="-0.063873" max="0.049591" rms="0.011448"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="5.99995465">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c34.au" len="132299" min="-0.164612" max="0.207947" rms="0.026512"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="8.99993197">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006b5.au" len="132299" min="-0.063934" max="0.063629" rms="0.012994"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="11.99990930">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="132299">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006d1.au" len="132299" min="-0.084106" max="0.070862" rms="0.011281"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

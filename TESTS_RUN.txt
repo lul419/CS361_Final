@@ -1,0 +1,78 @@
+Test 1: Proof of concept
+-- pop = 50
+-- generations = 100
+-- num_eval = 30
+-- low mutation
+Notes: Good improvement over generations, but doesnt seems to have converged yet. Next run, try higher mutation
+
+Test 2:
+-- pop = 50
+-- gen = 100
+-- numeval = 30
+-- high mutation amount and rate
+Notes: Increased both mutation amount and rate. However, this resulted in poor performance. Fitness pretty much stayed the same over generations. We decided that the mutation amount was too big -> next run reduce to test 1 quantities.
+
+Test 3:
+-- pop = 30
+-- gen = 200
+-- numeval = 30
+-- low mutation amount, higher rate
+Notes: Good performance.
+Audio file: Despite high fitness, audio output is not as clear.
+
+Test 4:
+-- pop 30
+-- gen = 200
+-- numeval = 100
+-- same mutation as test 3
+Notes: We wanted to see if increasing num eval would improve performance of ENN.
+Also, Sherri mentioned that lower pop would work going forward.
+Audio file: Audio output file is noticeably better. We should use even higher numeval going foward.
+
+Test 5:
+-- pop 15
+-- gen 43
+-- numeval = 300
+-- same mutation..?
+-- L =
+-- different data (violin_full.wav and piano_full.wav)
+
+Test 6:
+-- pop 30
+-- gen 100
+-- little more elitism 3
+-- numeval = 115
+-- increasing weight_mutate_rate (keep amount low) from 0.5 to 0.55
+
+Plan1:
+- Evalute winners on testpiece.wav
+--- preprocess testpiece.wav; run evaluation
+- Increase L to 1024 and increase training data set to 5 snippets?
+--- rerun preproc with L and more pieces > new xvec, svec etc.
+
+- Next run ideas:
+--- Increase numeval to 600?
+--- Decrease pop to 15
+--- Decrease gen to 100?
+
+- Future run ideas:
+--- little more elitism
+--- explore increasing mutation (keep amount low)
+--- Try C = 2, 3?
+
+- For final/best run:
+--- eventually want to run bigger # generations
+
+
+- Parameters we want to explore:
+--- C
+--- L
+--- weight_mutation_power
+--- weight_mutation_rate
+--- bias_mutation_power
+--- bias_mutation_rate
+--- elitism
+--- activation function...?
+--- numeval
+--- gen
+--- pop
