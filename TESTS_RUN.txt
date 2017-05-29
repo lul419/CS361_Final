@@ -34,8 +34,9 @@ Test 5:
 -- gen 43
 -- numeval = 300
 -- same mutation..?
--- L =
+-- L = 1024, C = 1 (increased L from previous runs)
 -- different data (violin_full.wav and piano_full.wav)
+-- time:
 
 Test 6:
 -- pop 30
@@ -43,36 +44,72 @@ Test 6:
 -- little more elitism 3
 -- numeval = 115
 -- increasing weight_mutate_rate (keep amount low) from 0.5 to 0.55
+-- time: 960 seconds
+-- We decided not to increase C, L
 
-Plan1:
-- Evalute winners on testpiece.wav
---- preprocess testpiece.wav; run evaluation
-- Increase L to 1024 and increase training data set to 5 snippets?
---- rerun preproc with L and more pieces > new xvec, svec etc.
+Test 7 (choe):
+-- pop 15
+-- gen 50
+-- numeval = 200
+-- Notes: We reduced L back to 512 due to runtime concerns. This is essentially test 4 but with more numeval and larger test set. Also reduced gen and pop. We fixed a bug regarding numeval we caused previous tests to eval much less than expected.
+-- time: 575s per generation
 
-- Next run ideas:
---- Increase numeval to 600?
---- Decrease pop to 15
---- Decrease gen to 100?
+Test 8 (liy):
+-- pop 15
+-- gen 50
+-- numeval = 200
+-- Notes: This is with recurrent network (compare with test 7)
+-- time: 350s per generation1
 
-- Future run ideas:
---- little more elitism
---- explore increasing mutation (keep amount low)
---- Try C = 2, 3?
+--------------------------------- For Jinny
 
-- For final/best run:
---- eventually want to run bigger # generations
+Test 9 (liy):
+-- pop 15
+-- gen 50
+-- numeval = 200
+-- Notes: This is with recurrent network (compare with test 7)
+-- time: 300s per generation1
 
+--------------------------------- For Lucy
+Test 10 (choe):
+-- pop 15
+-- gen 50
+-- numeval = 200
+-- time: 568s per generation
 
-- Parameters we want to explore:
---- C
---- L
---- weight_mutation_power
---- weight_mutation_rate
---- bias_mutation_power
---- bias_mutation_rate
---- elitism
---- activation function...?
---- numeval
---- gen
---- pop
+Test 11 (liy):
+-- pop 15
+-- gen 170
+-- numeval = 200
+-- hidden nodes = 125
+-- time 155s
+reccurrent
+
+--- Below started by Li ---
+Test 12 (liy):
+-- pop 15
+-- gen 150
+-- numeval = 200
+-- hidden nodes = 125
+-- time 160s per gen (expected end 7-8pm)
+Recurrent
+
+Test 13 (choe):
+-- pop 15
+-- gen 150
+-- numeval 200
+-- hidden nodes 125
+-- time 230 (expected end 9pm)
+not recurrent
+
+==============================
+=========  TODO ==============
+==============================
+* random baseline
+* change hidden nodes
+** Recurr (test 11,12)
+** No recurr (test 13)
+* change fitness functions
+* recurrence
+** Yes (Test 8,10)
+** No (Test 7,9)
